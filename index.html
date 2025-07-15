@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CPP Break‑Even · Reis Office</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- jsPDF + autoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="assets/logo-small.png" alt="Reis Office" class="logo">
+    <h1>Calculadora de CPP</h1>
+  </header>
+
+  <main>
+    <form id="breakEvenForm">
+      <fieldset>
+        <legend>Dados do Equipamento</legend>
+        <label>Modelo Equipamento:
+          <input type="text" id="modeloEquip" value="IR 1643">
+        </label>
+        <label>Valor Hardware (R$):
+          <input type="number" step="0.01" id="valorHardware" value="2393.31">
+        </label>
+        <label>Tempo de Contrato (meses):
+          <input type="number" id="tempoContrato" value="36">
+        </label>
+        <label>Volume Mensal (páginas):
+          <input type="number" id="volumeMensal" value="15000">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Toner</legend>
+        <label>Modelo Toner:
+          <input type="text" id="modeloToner" value="T06">
+        </label>
+        <label>Valor Toner (R$):
+          <input type="number" step="0.01" id="valorToner" value="433.66">
+        </label>
+        <label>Durabilidade Toner (páginas):
+          <input type="number" id="durToner" value="20500">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Suprimento 1</legend>
+        <label>Nome Suprimento:
+          <input type="text" id="nomeSup1" value="Fusor">
+        </label>
+        <label>Valor Suprimento (R$):
+          <input type="number" step="0.01" id="valorSup1" value="842.30">
+        </label>
+        <label>Durabilidade (páginas):
+          <input type="number" id="durSup1" value="200000">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Suprimento 2 (opcional)</legend>
+        <label>Nome Suprimento:
+          <input type="text" id="nomeSup2" placeholder="–">
+        </label>
+        <label>Valor Suprimento (R$):
+          <input type="number" step="0.01" id="valorSup2" value="0">
+        </label>
+        <label>Durabilidade (páginas):
+          <input type="number" id="durSup2" value="1">
+        </label>
+      </fieldset>
+
+      <button type="button" id="btnCalc">Calcular CPP</button>
+    </form>
+
+    <section id="resultado" class="hidden">
+      <h2>Resultados</h2>
+      <table>
+        <tr><th>Custo p/ Página (R$)</th><td id="resCpp">–</td></tr>
+        <tr><th>Gasto Total Suprimentos (R$)</th><td id="resGasto">–</td></tr>
+        <tr><th>Valor Total Investimento (R$)</th><td id="resTotal">–</td></tr>
+      </table>
+      <button id="btnPdf">Exportar PDF</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
